@@ -29,7 +29,7 @@ def send_static_styles(directory, path):
 
 @app.route("/login")
 def get_login():
-    pass
+    return render_template("login.html")
 
 @app.route("/logout")
 def get_logout():

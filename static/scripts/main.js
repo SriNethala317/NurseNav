@@ -20,9 +20,11 @@ map.addControl(
 );
 
 document.querySelectorAll('.tag').forEach(tag => tag.addEventListener('click', function() {
+  document.querySelector('#results').innerHTML = '';
   this.classList.toggle('selected');
   let location = [32.9858304, -96.7511073];
   let tags = Array.from(document.querySelectorAll('.selected')).map(x => x.innerText);
+  console.log(tags);
   fetch("/nurses", {
     method: "POST",
     body: JSON.stringify({ location, tags }),
@@ -40,11 +42,11 @@ document.querySelectorAll('.tag').forEach(tag => tag.addEventListener('click', f
         <b>Name:</b> ${result[i].name}<br>
         <b>Phone:</b> ${result[i].phone}
         <p>${result[i].description}</p>
-        <b>Distance:</b> ${result[i].distance.toFixed(2)}
+        <b>Distance:</b> ${result[i].distance.toFixed(2)}<br>
+        <b>Tags:</b> ${result[i].tags}
       `;
       fragment.appendChild(div);
     }
-    document.querySelector('#results').innerHTML = '';
     document.querySelector('#results').appendChild(fragment);
   });
 }));
