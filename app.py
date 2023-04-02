@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, redirect, render_template, session, url_for, request, send_from_directory
 from os import environ as env
 from dotenv import find_dotenv, load_dotenv
 from pymongo import MongoClient
@@ -19,6 +19,5 @@ nurses = db['nurses']
 
 @app.route("/")
 def get_index():
-    users.insert_one({"name":"test"})
-    return "helloworld"
+    return render_template("index.html")
 
