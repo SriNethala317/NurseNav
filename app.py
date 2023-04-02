@@ -10,7 +10,7 @@ app.secret_key = env.get("APP_SECRET_KEY")
 
 @app.route("/")
 def get_index():
-    return render_template("index.html", tags=all_tags())
+    return render_template("index.html", tags=all_tags(), MAPBOX_KEY=env.get("MAPBOX_KEY"))
 
 @app.route("/nurse", methods=['POST'])
 def get_nurses():
