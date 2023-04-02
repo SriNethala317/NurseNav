@@ -1,5 +1,10 @@
 feather.replace();
 
+if ("serviceWorker" in navigator) {
+  // register service worker
+  navigator.serviceWorker.register("/service-worker.js");
+}
+
 const map = new mapboxgl.Map({
   container: 'map', // container ID
   style: 'mapbox://styles/mapbox/streets-v12', // style URL
