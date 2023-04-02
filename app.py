@@ -1,5 +1,5 @@
 from dbmongo import *
-from flask import Flask, redirect, render_template, session, url_for, request, send_from_directory
+from flask import Flask, redirect, render_template, session, url_for, request, send_from_directory, jsonify
 from flask_bcrypt import Bcrypt
 from wtforms.validators import InputRequired, Length, ValidationError
 from wtforms import StringField, PasswordField, SubmitField
@@ -74,6 +74,23 @@ def home():
 @app.route('/<directory>/<path>')
 def send_static_styles(directory, path):
     return send_from_directory('static/' + directory, path)
+
+
+@app.route("/nurses", methods=['POST'])
+def get_nurses():
+    tags = request.get_json()['tags']
+    location = request.get_json()['location']
+    return jsonify(find_nurses(location, tags))
+
+
+@app.route('/manifest.json')
+def send_manifest():
+    return send_from_directory('static', 'manifest.json')
+
+
+@app.route('/service-worker.js')
+def send_service_worker():
+    return send_from_directory('static', 'service-worker.js')
 
 
 @app.route('/login', methods=['GET', 'POST'])
