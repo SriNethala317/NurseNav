@@ -30,7 +30,7 @@ def all_tags():
         for tag in nurse['tags']:
             if tag not in tags:
                 tags.append(tag)
-    
+
     return tags
 
 def find_nurses(location, tags):
@@ -42,6 +42,7 @@ def find_nurses(location, tags):
             valid_nurses.append({
                 'name': nurse['name'],
                 'distance': miles,
+                'description': nurse['description'],
                 'phone': nurse['phone']
             })
 

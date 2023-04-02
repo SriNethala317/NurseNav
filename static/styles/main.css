@@ -71,12 +71,18 @@ main > section {
   flex-grow: 1;
 }
 
+section {
+  position: relative;
+}
+
 #results {
   background-color: #fff;
+  max-height: 98%;
   width: 100%;
   position: absolute;
   bottom: 0;
   z-index: 10;
+  overflow-y: scroll;
 }
 
 .result {

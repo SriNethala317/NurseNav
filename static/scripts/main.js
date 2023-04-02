@@ -30,7 +30,20 @@ document.querySelectorAll('.tag').forEach(tag => tag.addEventListener('click', f
   })
   .then(response => response.json())
   .then(result => {
-    console.log(result);
+    const fragment = document.createDocumentFragment();
+    for (let i = 0; i < result.length; i++) {
+      const div = document.createElement('div');
+      div.classList.add('result');
+      div.innerHTML = `
+        <b>Name:</b> ${result[i].name}<br>
+        <b>Phone:</b> ${result[i].phone}
+        <p>${result[i].description}</p>
+        <b>Distance:</b> ${result[i].distance}
+      `;
+      fragment.appendChild(div);
+    }
+    document.querySelector('#results').innerHTML = '';
+    document.querySelector('#results').appendChild(fragment);
   });
 }));
 //   fetch("/nurses",{
