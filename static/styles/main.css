@@ -1,7 +1,6 @@
 :root {
   --accent: #F48FB1;
-  --selected: #B388FF;
-  --selected-hover: #9b71e5;
+  --accent-hover: #e586a6;
 }
 
 html, body {
@@ -68,11 +67,11 @@ main > section {
 }
 
 .tag.selected {
-  background-color: var(--selected);
+  background-color: var(--accent);
 }
 
 .tag.selected:hover {
-  background-color: var(--selected-hover);
+  background-color: var(--accent-hover);
 }
 
 #map {
