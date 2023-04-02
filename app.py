@@ -21,3 +21,22 @@ nurses = db['nurses']
 def get_index():
     return render_template("index.html")
 
+@app.route('/<directory>/<path>')
+def send_static_styles(directory, path):
+    return send_from_directory('static/' + directory, path)
+
+@app.route("/login")
+def get_login():
+    pass
+
+@app.route("/logout")
+def get_logout():
+    pass
+
+@app.route("/search")
+def search():
+    pass
+
+@app.route("/profile", methods=['GET', 'POST'])
+def get_profile():
+    pass
