@@ -1,7 +1,9 @@
 from pymongo import MongoClient
 from os import environ as env
 from dotenv import find_dotenv, load_dotenv
+from geopy.distance import geodesic
 
+RANGE = 3
 ENV_FILE = find_dotenv()
 if ENV_FILE:
     load_dotenv(ENV_FILE)
@@ -29,8 +31,12 @@ def all_tags():
     return tags
 
 def find_nurses(location, tags):
-    
-    pass
+    location = tuple(location)
+    valid_nurses = []
+    set_tags = set(tags)
+    for nurse in list(nurses.find()):
+        if set_tags.issubset(set(nurse['tags'])) and geodesic(location, tuple(nurse['location'])).mi < RANGE:
+            valid_nurses.append(nurse)
 
+    return valid_nurses
 
-print(all_tags())
