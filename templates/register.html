@@ -1,76 +1,85 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/styles/register.css">
-    <title>NurseNav</title>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/register.css">
+  <title>NurseNav</title>
 </head>
+
 <body>
-<form id="signin" autocomplete="off">
+  <form method="POST" action="">
+    {{ form.hidden_tag() }}
+    {{ form.username }}
+    {{ form.password }}
+    {{ form.submit }}
+  </form>
+  <form id="signin" autocomplete="off">
     <h1 id="logo"><a href="/">NurseNav</a></h1>
     <p id="missionStatement">
-        Our mission is to empower and support caregivers and elderly individuals through resources and community
-        building.
-        We strive to promote dignity, independence, and quality of life for all individuals.
+      Our mission is to empower and support caregivers and elderly individuals through resources and community
+      building.
+      We strive to promote dignity, independence, and quality of life for all individuals.
     </p>
     <div id="selection">
-        <button id="nurseLogin">Nurse</button>
-        <button id="userLogin">User</button>
+      <button id="nurseLogin">Nurse</button>
+      <button id="userLogin">User</button>
     </div>
     <div id="nurse" class="hide">
-        <div class="form-input">
-            <label for="nurse-name">Name</label>
-            <input type="text" id="nurse-name" maxlength="30">
-        </div>
-        <div class="form-input">
-            <label for="nurse-email">Email</label>
-            <input type="email" id="nurse-email" maxlength="30">
-        </div>
-        <div class="form-input">
-            <label for="nurse-password">Password</label>
-            <input type="text" id="nurse-password" maxlength="15">
-        </div>
-        <div class="form-input">
-            <label for="confirmNp">Confirm Password</label>
-            <input type="text" id="confirmNp" maxlength="15">
-        </div>
-        <div class="form-input">
-            <label for="nurse-description">Description</label>
-            <input type="text" id="nurse-description" maxlength="300">
-        </div>
+      <div class="form-input">
+        <label for="nurse-name">Name</label>
+        <input type="text" id="nurse-name" maxlength="30">
+      </div>
+      <div class="form-input">
+        <label for="nurse-email">Email</label>
+        <input type="email" id="nurse-email" maxlength="30">
+      </div>
+      <div class="form-input">
+        <label for="nurse-password">Password</label>
+        <input type="text" id="nurse-password" maxlength="15">
+      </div>
+      <div class="form-input">
+        <label for="confirmNp">Confirm Password</label>
+        <input type="text" id="confirmNp" maxlength="15">
+      </div>
+      <div class="form-input">
+        <label for="nurse-description">Description</label>
+        <input type="text" id="nurse-description" maxlength="300">
+      </div>
     </div>
     <div id="user" class="hide">
-        <div class="form-input">
-            <label for="user-name">Name</label>
-            <input type="text" id="user-name" maxlength="30">
-        </div>
-        <div class="form-input">
-            <label for="user-email">Email</label>
-            <input type="email" id="user-email" maxlength="30">
-        </div>
-        <div class="form-input">
-            <label for="user-password">Password</label>
-            <input type="text" id="user-password" maxlength="15">
-        </div>
-        <div class="form-input">
-            <label for="confirmUp">Confirm Password</label>
-            <input type="text" id="confirmUp" maxlength="15">
-        </div>
+      <div class="form-input">
+        <label for="user-name">Name</label>
+        <input type="text" id="user-name" maxlength="30">
+      </div>
+      <div class="form-input">
+        <label for="user-email">Email</label>
+        <input type="email" id="user-email" maxlength="30">
+      </div>
+      <div class="form-input">
+        <label for="user-password">Password</label>
+        <input type="text" id="user-password" maxlength="15">
+      </div>
+      <div class="form-input">
+        <label for="confirmUp">Confirm Password</label>
+        <input type="text" id="confirmUp" maxlength="15">
+      </div>
     </div>
     <div id="buttons" class="hide">
-        <button id="back" type="reset">Back</button>
-        <button id="register">Register</button>
+      <button id="back" type="reset">Back</button>
+      <button id="register">Register</button>
     </div>
     <p>
-        Or <a href="/login">log in</a> if you already have an account
+      Or <a href="/login">log in</a> if you already have an account
     </p>
-</form>
-<script src="/scripts/behaviour.js"></script>
+  </form>
+  <script src="/scripts/behaviour.js"></script>
 </body>
+
 </html>

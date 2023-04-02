@@ -1,4 +1,6 @@
 from pymongo import MongoClient
+import geopy.distance
+import dotenv
 from os import environ as env
 from dotenv import find_dotenv, load_dotenv
 from geopy.distance import geodesic
@@ -24,6 +26,7 @@ def get_env():
         load_dotenv(ENV_FILE)
     return env
 
+
 def all_tags():
     tags = []
     for nurse in list(nurses.find()):
@@ -32,6 +35,7 @@ def all_tags():
                 tags.append(tag)
 
     return tags
+
 
 def find_nurses(location, tags):
     location = tuple(location)
@@ -50,4 +54,3 @@ def find_nurses(location, tags):
     print(valid_nurses)
 
     return valid_nurses
-

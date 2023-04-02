@@ -1,36 +1,39 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>NurseNav</title>
   <link rel="stylesheet" href="/styles/main.css">
   <link href='https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.css' rel='stylesheet' />
 </head>
+
 <body>
-<header>
-  <h1>NurseNav</h1>
-  <a href="/register" id="register"><i data-feather="log-in"></i></a>
-</header>
-<main>
-  <ul id="tags">
-    {% for tag in tags %}
-    <li class="tag">{{ tag }}</li>
-    {% endfor %}
-  </ul>
-  <section>
-    <div id="map"></div>
-    <div id="results">
-    </div>
-  </section>
-  <script src='https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.js'></script>
-  <script>
-    mapboxgl.accessToken = '{{ MAPBOX_KEY }}';
-  </script>
-  <script src="https://unpkg.com/feather-icons"></script>
-  <script src="/scripts/main.js"></script>
-</main>
+  <header>
+    <h1>NurseNav</h1>
+    <a href="/register" id="register"><i data-feather="log-in"></i></a>
+  </header>
+  <main>
+    <ul id="tags">
+      {% for tag in tags %}
+      <li class="tag">{{ tag }}</li>
+      {% endfor %}
+    </ul>
+    <section>
+      <div id="map"></div>
+      <div id="results">
+      </div>
+    </section>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.js'></script>
+    <script>
+      mapboxgl.accessToken = '{{ MAPBOX_KEY }}';
+    </script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="/scripts/main.js"></script>
+  </main>
 </body>
+
 </html>
