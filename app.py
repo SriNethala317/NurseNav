@@ -17,7 +17,7 @@ def get_index():
 def get_register():
     return render_template("register.html")
 
-@app.route("/nurse", methods=['POST'])
+@app.route("/nurses", methods=['POST'])
 def get_nurses():
     tags = request.get_json()['tags']
     location = request.get_json()['location']
