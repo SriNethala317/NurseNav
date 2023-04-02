@@ -19,6 +19,25 @@ map.addControl(
 
 document.querySelectorAll('.tag').forEach(tag => tag.addEventListener('click', function() {
   this.classList.toggle('selected');
-
+  let location = [32.9858304, -96.7511073];
   let tags = Array.from(document.querySelectorAll('.selected')).map(x => x.innerText);
+  fetch("/nurses", {
+    method: "POST",
+    body: JSON.stringify({ location, tags }),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+  .then(response => response.json())
+  .then(result => {
+    console.log(result);
+  });
 }));
+//   fetch("/nurses",{
+//     method: 'POST',
+//     tags,
+//     location
+//   }).then(response => response.json())
+//     .then(data => console.log(data))
+// }))
+// .catch(console.error);

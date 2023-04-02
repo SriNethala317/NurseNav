@@ -1,5 +1,6 @@
-from flask import Flask, redirect, render_template, session, url_for, request, send_from_directory
+from flask import Flask, redirect, render_template, session, url_for, request, send_from_directory, jsonify
 from dbmongo import *
+import json
 
 env = get_env()
 
@@ -18,9 +19,9 @@ def get_register():
 
 @app.route("/nurse", methods=['POST'])
 def get_nurses():
-    location = request.form['location']
-    tags = request.form['tags']
-    return find_nurses(location, tags)
+    tags = request.get_json()['tags']
+    location = request.get_json()['location']
+    return jsonify(find_nurses(location, tags))
 
 @app.route('/<directory>/<path>')
 def send_static_styles(directory, path):

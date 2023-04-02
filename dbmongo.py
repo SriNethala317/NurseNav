@@ -14,6 +14,9 @@ db = client['nursenav']
 users = db['users']
 nurses = db['nurses']
 
+mydict = {1:"a", 2: 'b'}
+mydict[1]
+
 
 def get_env():
     ENV_FILE = find_dotenv()
@@ -36,8 +39,13 @@ def find_nurses(location, tags):
     set_tags = set(tags)
     for nurse in list(nurses.find()):
         if set_tags.issubset(set(nurse['tags'])) and (miles := geodesic(location, tuple(nurse['location'])).mi) < RANGE:
-            nurse['location'] = miles
-            valid_nurses.append(nurse)
+            valid_nurses.append({
+                'name': nurse['name'],
+                'distance': miles,
+                'phone': nurse['phone']
+            })
+
+    print(valid_nurses)
 
     return valid_nurses
 
