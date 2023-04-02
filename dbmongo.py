@@ -35,7 +35,8 @@ def find_nurses(location, tags):
     valid_nurses = []
     set_tags = set(tags)
     for nurse in list(nurses.find()):
-        if set_tags.issubset(set(nurse['tags'])) and geodesic(location, tuple(nurse['location'])).mi < RANGE:
+        if set_tags.issubset(set(nurse['tags'])) and (miles := geodesic(location, tuple(nurse['location'])).mi) < RANGE:
+            nurse['location'] = miles
             valid_nurses.append(nurse)
 
     return valid_nurses
