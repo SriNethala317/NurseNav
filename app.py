@@ -1,25 +1,22 @@
 from flask import Flask, redirect, render_template, session, url_for, request, send_from_directory
-from os import environ as env
-from dotenv import find_dotenv, load_dotenv
-from pymongo import MongoClient
+from dbmongo import *
 
-ENV_FILE = find_dotenv()
-
-if ENV_FILE:
-    load_dotenv(ENV_FILE)
+env = get_env()
 
 app = Flask(__name__)
 app.secret_key = env.get("APP_SECRET_KEY")
 
-cluster = env.get("MONGODB_CLUSTER")
-client = MongoClient(cluster)
-db = client['nursenav']
-users = db['users']
-nurses = db['nurses']
+
 
 @app.route("/")
 def get_index():
-    return render_template("index.html")
+    return render_template("index.html", tags=all_tags())
+
+@app.route("/nurse", methods=['POST'])
+def get_nurses():
+    location = request.form['location']
+    tags = request.form['tags']
+    return find_nurses(location, tags)
 
 @app.route('/<directory>/<path>')
 def send_static_styles(directory, path):
@@ -31,10 +28,6 @@ def get_login():
 
 @app.route("/logout")
 def get_logout():
-    pass
-
-@app.route("/search")
-def search():
     pass
 
 @app.route("/profile", methods=['GET', 'POST'])
