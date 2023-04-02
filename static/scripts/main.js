@@ -19,4 +19,6 @@ map.addControl(
 
 document.querySelectorAll('.tag').forEach(tag => tag.addEventListener('click', function() {
   this.classList.toggle('selected');
+
+  let tags = Array.from(document.querySelectorAll('.selected')).map(x => x.innerText);
 }));
