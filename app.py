@@ -27,6 +27,14 @@ def get_nurses():
 def send_static_styles(directory, path):
     return send_from_directory('static/' + directory, path)
 
+@app.route("/manifest.json")
+def send_manifest():
+    return send_from_directory('static', 'manifest.json')
+
+@app.route("/service-worker.js")
+def send_service_worker():
+    return send_from_directory('static', 'service-worker.js')
+
 @app.route("/login")
 def get_login():
     return render_template("login.html")
