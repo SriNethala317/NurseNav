@@ -1,3 +1,5 @@
+feather.replace();
+
 const map = new mapboxgl.Map({
   container: 'map', // container ID
   style: 'mapbox://styles/mapbox/streets-v12', // style URL
@@ -38,7 +40,7 @@ document.querySelectorAll('.tag').forEach(tag => tag.addEventListener('click', f
         <b>Name:</b> ${result[i].name}<br>
         <b>Phone:</b> ${result[i].phone}
         <p>${result[i].description}</p>
-        <b>Distance:</b> ${result[i].distance}
+        <b>Distance:</b> ${result[i].distance.toFixed(2)}
       `;
       fragment.appendChild(div);
     }

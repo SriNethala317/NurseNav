@@ -19,6 +19,14 @@ header {
   background-color: var(--accent);
   padding: .75rem 1rem;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header a {
+  text-decoration: none;
+  color: #000;
 }
 
 header h1 {
