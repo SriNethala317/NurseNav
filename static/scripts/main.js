@@ -8,7 +8,7 @@ if ("serviceWorker" in navigator) {
 const map = new mapboxgl.Map({
   container: 'map', // container ID
   style: 'mapbox://styles/mapbox/streets-v12', // style URL
-  center: [-96.7511073, 32.9858304], // starting position [lng, lat]
+  center: [-96.9511073, 32.4858304], // starting position [lng, lat]
   zoom: 12, // starting zoom
 });
 
